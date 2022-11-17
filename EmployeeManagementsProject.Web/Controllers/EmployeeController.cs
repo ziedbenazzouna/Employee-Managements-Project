@@ -1,5 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using OA_DataAccess;
 using OA_Service;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace EmployeeManagementsProject.Web.Controllers
 {
@@ -15,10 +18,17 @@ namespace EmployeeManagementsProject.Web.Controllers
         }
 
         [HttpGet]
-        public IActionResult GetEmployee()
+        public IEnumerable<Employee> GetEmployee()
         {
             var employees = _iEmployeeService.GetAllEmployees();
-            return View(employees);
+            return employees;
+        }
+
+        [HttpPost]
+        public Employee Add([FromBody] Employee e)
+        {
+            var employee = _iEmployeeService.AddEmployee(e);
+            return employee;
         }
     }
 }
