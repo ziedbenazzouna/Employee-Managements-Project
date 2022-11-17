@@ -36,7 +36,7 @@ jobs:
        - name: Build app
          run: dotnet build -c Release --no-restore
 
-      - name: Run automated tests
+       - name: Run automated tests
          env:
            ConnectionStrings__DefaultConnection: data source=localhost;Database=EmployeeManagementDB_Test;User=sa;Password=Pass~w0r8
          run: dotnet test -c Release --no-build
