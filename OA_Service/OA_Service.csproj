@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\OA_DataAccess\OA_DataAccess.csproj" />
+    <ProjectReference Include="..\OA_Repository\OA_Repository.csproj" />
+  </ItemGroup>
+
+</Project>
