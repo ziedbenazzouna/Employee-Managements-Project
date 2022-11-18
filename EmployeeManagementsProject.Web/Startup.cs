@@ -1,11 +1,13 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.SpaServices.AngularCli;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using OA_DataAccess;
 using OA_Repository;
 using OA_Service;
 
@@ -25,7 +27,20 @@ namespace EmployeeManagementsProject.Web
         {
             services.AddDbContext<ApplicationDbContext>(options =>
               options.UseSqlServer(
-                Configuration.GetConnectionString("DefaultConnection")));
+                Configuration.GetConnectionString("DefaultConnection"),b=> b.MigrationsAssembly("OA_Repository")));
+
+            services.AddDefaultIdentity<ApplicationUser>().AddEntityFrameworkStores<ApplicationDbContext>();
+
+            services.Configure<IdentityOptions>(options =>
+            {
+                options.Password.RequireDigit = false;
+                options.Password.RequireNonAlphanumeric = false;
+                options.Password.RequireLowercase = false;
+                options.Password.RequireUppercase = false;
+                options.Password.RequiredLength = 4;
+            }
+            );
+
             services.AddControllersWithViews();
             services.AddTransient(typeof(IRepository<>), typeof(Repository<>));
             services.AddTransient<IEmployeeService, EmployeeService>();
@@ -57,6 +72,8 @@ namespace EmployeeManagementsProject.Web
             {
                 app.UseSpaStaticFiles();
             }
+
+            app.UseAuthentication();
 
             app.UseRouting();
 

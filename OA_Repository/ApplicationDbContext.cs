@@ -17,5 +17,7 @@ namespace OA_Repository
         }
 
         public DbSet<Employee> Employees { get; set; }
+
+        public DbSet<ApplicationUser> ApplicationUsers { get; set; }
     }
 }
