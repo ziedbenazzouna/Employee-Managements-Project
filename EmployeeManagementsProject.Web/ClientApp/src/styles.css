@@ -1,16 +1,46 @@
 /* You can add global styles to this file, and also import other style files */
-
-/* Provide sufficient contrast against white background */
-a {
-  color: #0366d6;
+body{
+  background-color: #ffc107;;
 }
 
-code {
-  color: #e01a76;
+input.form-control,input.form-control:focus{
+  background-color: #ffc107;
+  color: black;
+  border-color: black;
+  border-radius: 0px;
+  border-width: 2px;
 }
 
-.btn-primary {
+input.form-control:focus{
+  box-shadow: none;
+  border-bottom-color: black;
+}
+
+button[type=submit].btn{
+  border-radius: 20px;
+  background-color: #000;
   color: #fff;
-  background-color: #1b6ec2;
-  border-color: #1861ac;
+}
+
+div.form-group label{
+  color: black;
+  font-weight: bold;
+}
+
+div.form-group.required>label:first-child:after{
+  content:'*';
+  color: #dc3545;
+padding-left: 5px;
+}
+
+#toast-container > div {
+  opacity:1;
+}
+
+form{
+  margin: 0px 16px;
+}
+
+div.side-header{
+  border:3px solid black;
 }
