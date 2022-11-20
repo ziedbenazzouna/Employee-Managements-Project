@@ -41,6 +41,8 @@ namespace EmployeeManagementsProject.Web
             }
             );
 
+            services.AddCors();
+
             services.AddControllersWithViews();
             services.AddTransient(typeof(IRepository<>), typeof(Repository<>));
             services.AddTransient<IEmployeeService, EmployeeService>();
@@ -72,6 +74,8 @@ namespace EmployeeManagementsProject.Web
             {
                 app.UseSpaStaticFiles();
             }
+
+            app.UseCors(x => x.AllowAnyHeader().AllowAnyMethod().AllowAnyOrigin());
 
             app.UseAuthentication();
 

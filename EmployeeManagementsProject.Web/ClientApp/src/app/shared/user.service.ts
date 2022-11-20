@@ -8,6 +8,7 @@ import { HttpClient, HttpHeaders  } from "@angular/common/http";
 export class UserService {
 
   constructor(private fb: FormBuilder, private http: HttpClient) { }
+  readonly BaseURI = 'https://localhost:44374/api';
 
   formModel = this.fb.group({
     UserName: ['', Validators.required],
@@ -29,5 +30,15 @@ export class UserService {
       else
         confirmPswrdCtrl.setErrors(null);
     }
+  }
+
+  register() {
+    var body = {
+      UserName: this.formModel.value.UserName,
+      Email: this.formModel.value.Email,
+      FullName: this.formModel.value.FullName,
+      Password: this.formModel.value.Passwords.Password
+    };
+    return this.http.post(this.BaseURI + '/ApplicationUser/Register', body);
   }
 }
