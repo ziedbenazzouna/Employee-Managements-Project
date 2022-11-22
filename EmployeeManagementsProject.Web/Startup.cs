@@ -123,7 +123,12 @@ namespace EmployeeManagementsProject.Web
                 app.UseSpaStaticFiles();
             }
 
-            app.UseCors(x => x.AllowAnyHeader().AllowAnyMethod().AllowAnyOrigin());
+            app.UseCors(builder =>
+            builder.WithOrigins(Configuration["ApplicationSettings:Client_URL"].ToString())
+            .AllowAnyHeader()
+            .AllowAnyMethod()
+
+            );
 
             app.UseAuthentication();           
             app.UseRouting();
