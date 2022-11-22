@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using OA_DataAccess;
 using System;
 using System.Linq;
 using System.Threading.Tasks;
@@ -11,8 +12,8 @@ namespace EmployeeManagementsProject.Web.Controllers
     [ApiController]
     public class UserProfileController : Controller
     {
-        private UserManager<IdentityUser> _userManager;
-        public UserProfileController(UserManager<IdentityUser> userManager)
+        private UserManager<ApplicationUser> _userManager;
+        public UserProfileController(UserManager<ApplicationUser> userManager)
         {
             _userManager = userManager;
         }
@@ -28,7 +29,8 @@ namespace EmployeeManagementsProject.Web.Controllers
             return new
             {
                 user.Email,
-                user.UserName
+                user.UserName,
+                user.FullName
             };
         }
     }
