@@ -49,4 +49,18 @@ export class UserService {
   getUserProfile() {
     return this.http.get(this.BaseURI + '/UserProfile');
   }
+
+  roleMatch(allowedRoles : any): boolean {
+    var isMatch = false;
+    var payLoad = JSON.parse(window.atob(localStorage['token'].split('.')[1]));
+    var userRole = payLoad.role;
+    allowedRoles.forEach((element: any) => {
+      if (userRole == element) {
+        isMatch = true;
+        return false;
+      }
+      return true;
+    });
+    return isMatch;
+  }
 }
