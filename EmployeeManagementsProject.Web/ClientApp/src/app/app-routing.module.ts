@@ -8,6 +8,7 @@ import { HomeComponent } from './home/home.component';
 import { AuthGuard } from './auth/auth.guard';
 import { ForbiddenComponent } from './forbidden/forbidden.component';
 import { AdminPanelComponent } from './admin-panel/admin-panel.component';
+import { EmployeesComponent } from './employees/employees.component';
 
 const routes : Routes = [
   {path:'',redirectTo:'/user/login',pathMatch:'full'},
@@ -20,7 +21,8 @@ const routes : Routes = [
   },
   {path:'home',component:HomeComponent, canActivate:[AuthGuard]},
   {path:'forbidden',component:ForbiddenComponent},
-  {path:'adminpanel',component:AdminPanelComponent,canActivate:[AuthGuard],data :{permittedRoles:['Admin']}}
+  {path:'adminpanel',component:AdminPanelComponent,canActivate:[AuthGuard],data :{permittedRoles:['Admin']}},
+  {path:'employeespanel',component:EmployeesComponent,canActivate:[AuthGuard],data :{permittedRoles:['Admin']}}
 ];
 
 @NgModule({
