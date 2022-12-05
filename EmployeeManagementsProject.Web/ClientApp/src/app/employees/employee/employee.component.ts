@@ -28,4 +28,14 @@ export class EmployeeComponent implements OnInit {
     }
   }
 
+  onSubmit(form: NgForm) {    
+      this.insertRecord(form);    
+  }
+
+  insertRecord(form: NgForm) {
+    console.log(form)
+    this.service.postEmployee(form.value).subscribe(res => {
+      this.resetForm(form);
+    });
+  }
 }

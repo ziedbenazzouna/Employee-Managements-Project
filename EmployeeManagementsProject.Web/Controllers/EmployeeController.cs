@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace EmployeeManagementsProject.Web.Controllers
 {
     [ApiController]
-    [Route("[controller]")]
+    [Route("api/[controller]")]
     public class EmployeeController : Controller
     {
         private readonly IEmployeeService _iEmployeeService;
