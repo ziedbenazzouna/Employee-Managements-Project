@@ -8,13 +8,20 @@ import { HttpClient, HttpHeaders } from "@angular/common/http";
 export class EmployeeService {
 
   formData : Employee;
-  constructor(private http : HttpClient) { }
+  list : Employee[];
   readonly rootURL  = 'https://localhost:44374/api';
+  constructor(private http : HttpClient) { }
+  
 
   postEmployee(formData : Employee){
-    console.log(formData)
     formData.Id = 0;
     // const reqHeader=  new HttpHeaders().set('Content-Type', 'application/json').set('Accept', 'application/json')
     return this.http.post(this.rootURL +"/employee" ,formData);
    }
+
+   refreshList(){
+    this.http.get(this.rootURL+'/employee')
+    .toPromise().then(res => this.list = res as Employee[]);
+  }
+
 }
