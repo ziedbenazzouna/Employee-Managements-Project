@@ -5,9 +5,9 @@
         <th>Mobile</th> 
     </tr>
     <tr *ngFor="let emp of service.list">
-      <td>[{{emp.empCode}}]-{{emp.fullName}}</td>
-      <td>{{emp.position}}</td>
-      <td>{{emp.mobile}}</td>
+      <td (click)="populateForm(emp)">[{{emp.empCode}}]-{{emp.fullName}}</td>
+      <td (click)="populateForm(emp)">{{emp.position}}</td>
+      <td (click)="populateForm(emp)">{{emp.mobile}}</td>
       <td><button class="btn btn-sm btn-outline-danger">X</button></td>
     </tr>
   </table>

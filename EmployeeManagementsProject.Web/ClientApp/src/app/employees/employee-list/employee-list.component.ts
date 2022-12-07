@@ -16,8 +16,15 @@ export class EmployeeListComponent implements OnInit {
     this.service.refreshList();
   }
 
-  populateForm(emp: Employee) {
-    this.service.formData = Object.assign({}, emp);
+  populateForm(emp) {
+    let SerializedEmp = {
+      Id: emp.id,
+      FullName: emp.fullName,
+      Position: emp.position,
+      EMPCode: emp.empCode,
+      Mobile: emp.mobile
+    }
+    this.service.formData = Object.assign({}, SerializedEmp);
   }
 
 }

@@ -35,7 +35,14 @@ namespace OA_Repository
             {
                 throw new ArgumentNullException("entity");
             }
+            if (record.Id != 0)
+            { 
+            entity.Update(record);
+            }
+            else
+            { 
             entity.Add(record);
+            }
             _context.SaveChanges();
         }
     }
