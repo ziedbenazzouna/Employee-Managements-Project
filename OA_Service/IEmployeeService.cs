@@ -12,5 +12,6 @@ namespace OA_Service
         IEnumerable<Employee> GetAllEmployees();
         Employee GetEmployeeById(int Id);
         Employee AddEmployee(Employee employee);
+        void DeleteEmployee(int Id);
     }
 }

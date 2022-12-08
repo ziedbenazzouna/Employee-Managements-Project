@@ -27,4 +27,8 @@ export class EmployeeService {
     .toPromise().then(res => this.list = res as Employee[]);
   }
 
+  deleteEmployee(id : number){
+    return this.http.delete(this.rootURL+'/employee?id='+id);
+   }
+
 }

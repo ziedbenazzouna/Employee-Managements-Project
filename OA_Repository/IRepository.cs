@@ -12,5 +12,6 @@ namespace OA_Repository
         IEnumerable<T> GetAll();
         T GetById(int Id);
         void Add(T record);
+        void Delete(int Id);
     }
 }

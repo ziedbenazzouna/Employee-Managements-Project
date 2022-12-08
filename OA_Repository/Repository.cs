@@ -45,5 +45,12 @@ namespace OA_Repository
             }
             _context.SaveChanges();
         }
+
+        public void Delete(int Id)
+        {
+            var record = entity.FirstOrDefault(x => x.Id == Id);
+            entity.Remove(record);
+            _context.SaveChanges();
+        }
     }
 }

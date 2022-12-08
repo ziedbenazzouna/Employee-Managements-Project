@@ -30,5 +30,14 @@ namespace EmployeeManagementsProject.Web.Controllers
             var employee = _iEmployeeService.AddEmployee(e);
             return employee;
         }
+
+        [HttpDelete]
+        public void Delete(int id)
+        {
+            if (id != 0)
+            {
+                _iEmployeeService.DeleteEmployee(id);
+            }
+        }
     }
 }

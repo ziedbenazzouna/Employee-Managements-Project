@@ -32,5 +32,10 @@ namespace OA_Service
             _repository.Add(employee);
             return GetEmployeeById(employee.Id);
         }
+
+        public void DeleteEmployee(int Id)
+        {
+            _repository.Delete(Id);
+        }
     }
 }
