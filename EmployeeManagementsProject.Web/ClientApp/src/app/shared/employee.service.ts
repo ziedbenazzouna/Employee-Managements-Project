@@ -18,7 +18,6 @@ export class EmployeeService {
     {
       formData.Id = 0;
     }
-    // const reqHeader=  new HttpHeaders().set('Content-Type', 'application/json').set('Accept', 'application/json')
     return this.http.post(this.rootURL +"/employee" ,formData);
    }
 
