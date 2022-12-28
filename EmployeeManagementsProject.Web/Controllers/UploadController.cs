@@ -12,12 +12,12 @@ namespace EmployeeManagementsProject.Web.Controllers
     public class UploadController : Controller
     {
         [HttpPost, DisableRequestSizeLimit]
-        public async Task<IActionResult> Upload()
+        public IActionResult Upload()
         {
             try
             {
-                var formCollection = await Request.ReadFormAsync();
-                var file = formCollection.Files.First();
+
+                var file = Request.Form.Files[0];
                 var folderName = Path.Combine("Resources", "Images");
                 var pathToSave = Path.Combine(Directory.GetCurrentDirectory(), folderName);
                 if (file.Length > 0)

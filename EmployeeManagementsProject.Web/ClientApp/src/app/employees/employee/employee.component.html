@@ -17,9 +17,9 @@
       <div class="form-group  col-md-6">
         <label>MOBILE</label>
         <input name="Mobile" #Mobile="ngModel" [(ngModel)]="service.formData.Mobile" class="form-control">
-      </div>
-      
+      </div>     
     </div>
+    <app-upload></app-upload>
     <div class="form-group">
       <button type="submit" [disabled]="form.invalid" class="btn btn-lg btn-block">SUBMIT</button>
     </div>
