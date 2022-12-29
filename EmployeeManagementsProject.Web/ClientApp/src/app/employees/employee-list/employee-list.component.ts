@@ -22,7 +22,8 @@ export class EmployeeListComponent implements OnInit {
       FullName: emp.fullName,
       Position: emp.position,
       EMPCode: emp.empCode,
-      Mobile: emp.mobile
+      Mobile: emp.mobile,
+      ImgPath : emp.imgPath
     }
     this.service.formData = Object.assign({}, SerializedEmp);
   }
@@ -34,6 +35,10 @@ export class EmployeeListComponent implements OnInit {
         this.toastr.warning('Deleted successfully', 'EMP. Register');
       });
     }
+  }
+
+  public createImgPath = (serverPath: string) => { 
+    return `https://localhost:44374/${serverPath}`; 
   }
 
 }

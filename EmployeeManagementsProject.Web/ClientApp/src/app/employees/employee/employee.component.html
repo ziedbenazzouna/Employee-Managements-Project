@@ -19,7 +19,7 @@
         <input name="Mobile" #Mobile="ngModel" [(ngModel)]="service.formData.Mobile" class="form-control">
       </div>     
     </div>
-    <app-upload></app-upload>
+    <app-upload (onUploadFinished)="uploadFinished($event)"></app-upload>
     <div class="form-group">
       <button type="submit" [disabled]="form.invalid" class="btn btn-lg btn-block">SUBMIT</button>
     </div>

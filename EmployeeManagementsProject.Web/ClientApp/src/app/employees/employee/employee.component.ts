@@ -9,7 +9,7 @@ import { ToastrService } from 'ngx-toastr';
   styles: []
 })
 export class EmployeeComponent implements OnInit {
-
+  public response: {dbPath: ''}
   constructor(private service : EmployeeService, private toastr : ToastrService) { }
 
 
@@ -25,7 +25,8 @@ export class EmployeeComponent implements OnInit {
       FullName: '',
       Position: '',
       EMPCode: '',
-      Mobile: ''
+      Mobile: '',
+      ImgPath :''
     }
   }
 
@@ -39,6 +40,7 @@ export class EmployeeComponent implements OnInit {
   }
 
   insertRecord(form: NgForm) {
+    form.value.ImgPath = this.response.dbPath;
     this.service.postEmployee(form.value).subscribe(res => {
       this.toastr.success('Inserted successfully', 'Employee. Register');
       this.resetForm(form);
@@ -47,11 +49,16 @@ export class EmployeeComponent implements OnInit {
   }
 
   updateRecord(form: NgForm) {
+    form.value.ImgPath = this.response.dbPath;
     this.service.postEmployee(form.value).subscribe(res => {
       this.toastr.info('Updated successfully', 'Employee. Register');
       this.resetForm(form);
       this.service.refreshList();
     });
 
+  }
+
+  uploadFinished = (event) => { 
+    this.response = event; 
   }
 }

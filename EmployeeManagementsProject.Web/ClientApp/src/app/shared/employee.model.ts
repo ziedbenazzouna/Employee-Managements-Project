@@ -4,4 +4,5 @@ export class Employee {
     EMPCode: string;
     Mobile: string;
     Position: string;
+    ImgPath : string;
 }

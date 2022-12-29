@@ -1,10 +1,12 @@
 <table class="table table-hover">
     <tr>
+        <th>Image</th>
         <th>FullName</th>
         <th>Position</th>
         <th>Mobile</th> 
     </tr>
     <tr *ngFor="let emp of service.list">
+      <td (click)="populateForm(emp)"><img [src]="createImgPath(emp.imgPath)" alt="profile picture" style="width:60px; height:60px;"></td>
       <td (click)="populateForm(emp)">[{{emp.empCode}}]-{{emp.fullName}}</td>
       <td (click)="populateForm(emp)">{{emp.position}}</td>
       <td (click)="populateForm(emp)">{{emp.mobile}}</td>
