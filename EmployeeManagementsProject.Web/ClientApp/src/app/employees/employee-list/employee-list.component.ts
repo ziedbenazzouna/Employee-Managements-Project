@@ -37,6 +37,11 @@ export class EmployeeListComponent implements OnInit {
     }
   }
 
+  onExport()
+  {
+    this.service.ExportEmployees();
+  }
+
   public createImgPath = (serverPath: string) => { 
     return `https://localhost:44374/${serverPath}`; 
   }

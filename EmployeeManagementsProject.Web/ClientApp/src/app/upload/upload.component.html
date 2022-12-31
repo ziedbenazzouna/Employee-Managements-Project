@@ -1,7 +1,7 @@
 <div class="row" style="margin-bottom:30px;">
-    <div class="col-md-3 mr-3">
+    <div class="col-md-6">
       <img [src]="imageUrl" style="width:170px;height: 220px;margin-bottom: 20px;">
-      <input type="file" #file placeholder="Choose file" accept="image/*" (change)="handleFileInput($event.target.files);uploadFile(file.files)" style="display:none;">
+      <input type="file" #file placeholder="Choose file" accept="image/*" (change)="handleFileInput($event.target.files);uploadFile(file.files)" style="display:none;"><br/>
       <button type="button" class="btn btn-success" (click)="file.click()">Upload File</button>
     </div>
     <div class="col-md-6">

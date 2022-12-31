@@ -26,7 +26,7 @@ export class EmployeeComponent implements OnInit {
       Position: '',
       EMPCode: '',
       Mobile: '',
-      ImgPath :''
+      ImgPath :'Resources\\Images\\default-image.jpg'
     }
   }
 
@@ -40,7 +40,8 @@ export class EmployeeComponent implements OnInit {
   }
 
   insertRecord(form: NgForm) {
-    form.value.ImgPath = this.response.dbPath;
+    
+    form.value.ImgPath = this.response != undefined ? this.response.dbPath : 'Resources\\Images\\default-image.jpg';
     this.service.postEmployee(form.value).subscribe(res => {
       this.toastr.success('Inserted successfully', 'Employee. Register');
       this.resetForm(form);
@@ -49,7 +50,8 @@ export class EmployeeComponent implements OnInit {
   }
 
   updateRecord(form: NgForm) {
-    form.value.ImgPath = this.response.dbPath;
+    console.log(this.response);
+    form.value.ImgPath = this.response != undefined ? this.response.dbPath : 'Resources\\Images\\default-image.jpg';
     this.service.postEmployee(form.value).subscribe(res => {
       this.toastr.info('Updated successfully', 'Employee. Register');
       this.resetForm(form);

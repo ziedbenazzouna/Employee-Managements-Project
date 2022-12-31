@@ -30,4 +30,18 @@ export class EmployeeService {
     return this.http.delete(this.rootURL+'/employee?id='+id);
    }
 
+  ExportEmployees() {
+    return this.http.get(this.rootURL + '/employee/Export', { responseType: 'blob' }).subscribe(data =>{this.downloadFile(data)});
+  }
+
+  downloadFile(data: Blob) {
+    const contentType = 'application/vnd.openxmlformats-ficedocument.spreadsheetml.sheet';
+    var blob = new Blob([data], { type: contentType });
+    var url = window.URL.createObjectURL(blob);
+    var anchor = document.createElement("a");
+    anchor.download = "Employees.xlsx";
+    anchor.href = url;
+    anchor.click();
+  }
+
 }

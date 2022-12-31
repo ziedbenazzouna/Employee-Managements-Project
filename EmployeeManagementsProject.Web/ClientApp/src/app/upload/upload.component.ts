@@ -9,7 +9,7 @@ import { Component,EventEmitter, OnInit, Output } from '@angular/core';
 export class UploadComponent implements OnInit {
    public message: string;
    public progress: number;
-   imageUrl : string = "/assets/img/default-image.jpg";
+   imageUrl : string = "Resources\\Images\\default-image.jpg";
    fileToUpload : File = null;
    @Output() onUploadFinished = new EventEmitter();
 
